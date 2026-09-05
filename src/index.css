@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #060301;
+  --color-on-background: #eee0d5;
+  --color-surface: #18120c;
+  --color-surface-dim: #18120c;
+  --color-surface-bright: #403830;
+  --color-surface-container-lowest: #130d07;
+  --color-surface-container-low: #211a14;
+  --color-surface-container: #251e18;
+  --color-surface-container-high: #302922;
+  --color-surface-container-highest: #3b332c;
+  --color-surface-variant: #3b332c;
+  --color-dark-surface: #1D0C04;
+  --color-secondary-surface: #3E220C;
+  
+  --color-primary: #ffb86e;
+  --color-on-primary: #492900;
+  --color-primary-container: #e49a48;
+  --color-on-primary-container: #5d3500;
+  --color-primary-cta: #E49A48;
+  --color-hover-state: #F5C972;
+  --color-primary-text: #FBE9B3;
+  --color-secondary-text: #FFF5D9;
+  
+  --color-secondary: #ffb784;
+  --color-on-secondary: #502500;
+  --color-secondary-container: #834000;
+  --color-on-secondary-container: #ffb683;
+  
+  --color-tertiary: #78d1fd;
+  --color-accent: #B46627;
+  --color-border-subtle: #7B5E3C;
+  --color-outline: #9f8e7e;
+  --color-outline-variant: #524437;
+  --color-on-surface: #eee0d5;
+  --color-on-surface-variant: #d7c3b2;
+
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-headline-xl: "Newsreader", Georgia, serif;
+  --font-headline-lg: "Newsreader", Georgia, serif;
+  --font-headline-md: "Newsreader", Georgia, serif;
+  --font-body-lg: "Space Grotesk", sans-serif;
+  --font-body-md: "Space Grotesk", sans-serif;
+  --font-body-sm: "Space Grotesk", sans-serif;
+  --font-label-uppercase: "Space Grotesk", sans-serif;
+
+  --spacing-gutter: 24px;
+  --spacing-space-xs: 4px;
+  --spacing-space-sm: 8px;
+  --spacing-space-md: 16px;
+  --spacing-space-lg: 32px;
+  --spacing-space-xl: 64px;
+  --spacing-space-2xl: 128px;
+}
+
+@layer utilities {
+  .font-headline-xl {
+    font-family: var(--font-headline-xl);
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -0.02em;
+  }
+  @media (max-width: 768px) {
+    .font-headline-xl {
+      font-size: 38px;
+      line-height: 44px;
+    }
+  }
+
+  .font-headline-lg {
+    font-family: var(--font-headline-lg);
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.01em;
+  }
+  @media (max-width: 768px) {
+    .font-headline-lg {
+      font-size: 30px;
+      line-height: 38px;
+    }
+  }
+
+  .font-headline-md {
+    font-family: var(--font-headline-md);
+    font-size: 28px;
+    line-height: 36px;
+  }
+  @media (max-width: 768px) {
+    .font-headline-md {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+
+  .font-body-lg {
+    font-family: var(--font-body-lg);
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .font-body-md {
+    font-family: var(--font-body-md);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .font-body-sm {
+    font-family: var(--font-body-sm);
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .font-label-uppercase {
+    font-family: var(--font-label-uppercase);
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
