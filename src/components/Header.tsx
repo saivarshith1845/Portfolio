@@ -1,127 +1,197 @@
-import React, { useState } from 'react';
-import { NavScreen } from '../types';
+import React, { useState, useEffect } from 'react';
+
+export type NavSection = 'home' | 'about' | 'projects' | 'journey' | 'contact';
 
 interface HeaderProps {
-  currentScreen: NavScreen;
-  onNavigate: (screen: NavScreen) => void;
-  onOpenProfile: () => void;
+  activeSection?: NavSection;
+  onNavigate?: (section: NavSection) => void;
+  onOpenProfile?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentScreen, onNavigate, onOpenProfile }) => {
+export const Header: React.FC<HeaderProps> = ({ activeSection = 'home', onNavigate, onOpenProfile }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentSection, setCurrentSection] = useState<NavSection>(activeSection);
 
-  const navItems: { id: NavScreen; label: string }[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'journey', label: 'Journey' },
-    { id: 'contact', label: 'Contact' },
+  const navItems: { id: NavSection; label: string }[] = [
+    { id: 'home', label: 'HOME' },
+    { id: 'about', label: 'ABOUT' },
+    { id: 'projects', label: 'PROJECTS' },
+    { id: 'journey', label: 'HACKATHONS' },
+    { id: 'contact', label: 'CONTACT' },
   ];
 
-  const handleNavClick = (screen: NavScreen) => {
-    onNavigate(screen);
+  // Scroll spy to detect active section automatically
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections: NavSection[] = ['home', 'about', 'projects', 'journey', 'contact'];
+      const scrollPos = window.scrollY + 250;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setCurrentSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (section: NavSection) => {
+    setCurrentSection(section);
     setMobileMenuOpen(false);
+
+    if (onNavigate) {
+      onNavigate(section);
+    } else {
+      const targetEl = document.getElementById(section);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#060301]/85 backdrop-blur-xl border-b border-[#7B5E3C]/30 transition-all">
-      <div className="h-20 max-w-7xl mx-auto px-6 lg:px-16 flex items-center justify-between">
-        {/* Brand */}
-        <button
-          onClick={() => handleNavClick('home')}
-          className="text-left font-headline-md text-[#FBE9B3] font-bold tracking-tight hover:text-[#ffb86e] transition-colors focus:outline-none"
-        >
-          SAI VARSHITH
-        </button>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navItems.map((item) => {
-            const isActive = currentScreen === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                aria-current={isActive ? 'page' : undefined}
-                className={`text-body-sm tracking-widest uppercase transition-all duration-200 cursor-pointer ${
-                  isActive
-                    ? 'text-[#ffb86e] font-bold font-label-uppercase border-b border-[#ffb86e] pb-1'
-                    : 'text-[#d7c3b2] hover:text-[#ffb86e] font-label-uppercase font-normal'
-                }`}
-              >
-                {item.label}
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center gap-4">
+    <>
+      <header className="fixed top-0 left-0 w-full z-40 bg-[#FFF6E8]/90 backdrop-blur-md border-b border-[#171515]/10 transition-all duration-300">
+        <div className="h-16 max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between">
+          
+          {/* LEFT: SV Monogram with Crimson Rule Line */}
           <button
-            onClick={() => handleNavClick('contact')}
-            className="bg-[#E49A48] hover:bg-[#F5C972] text-[#2c1600] px-4 py-2 rounded-xl font-label-uppercase font-bold tracking-wider transition-all transform hover:-translate-y-0.5 shadow-md shadow-[#E49A48]/10 cursor-pointer"
+            onClick={() => handleNavClick('home')}
+            data-cursor="hover"
+            className="group flex items-center gap-3 cursor-pointer focus:outline-none"
+            title="Sai Varshith Portfolio"
           >
-            Let's Build
-          </button>
-          <button
-            onClick={onOpenProfile}
-            title="Sai Varshith profile card"
-            className="w-8 h-8 rounded-full bg-[#3b332c] hover:bg-[#3E220C] flex items-center justify-center border border-[#7B5E3C] hover:border-[#ffb86e] transition-colors cursor-pointer group"
-          >
-            <span className="material-symbols-outlined text-[#ffb86e] group-hover:scale-110 transition-transform text-[18px]">
-              person
+            <div className="w-7 h-7 rounded-full bg-[#171515] flex items-center justify-center border border-[#171515] group-hover:bg-[#C1121F] transition-colors">
+              <span className="font-cinzel text-xs font-bold text-[#FFF6E8]">SV</span>
+            </div>
+            <span className="w-5 h-px bg-[#C1121F] transition-all duration-300 group-hover:w-8" />
+            <span className="font-syne text-[10px] tracking-[0.25em] text-[#171515] uppercase font-bold hidden sm:inline">
+              SAI VARSHITH
             </span>
           </button>
-        </div>
 
-        {/* Mobile Menu Toggle Button */}
-        <div className="flex lg:hidden items-center gap-2">
-          <button
-            onClick={onOpenProfile}
-            className="w-8 h-8 rounded-full bg-[#3b332c] flex items-center justify-center border border-[#7B5E3C] text-[#ffb86e]"
-          >
-            <span className="material-symbols-outlined text-[18px]">person</span>
-          </button>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-[#eee0d5] p-2 hover:text-[#ffb86e] transition-colors"
-            aria-label="Toggle navigation menu"
-          >
-            <span className="material-symbols-outlined text-2xl">
-              {mobileMenuOpen ? 'close' : 'menu'}
+          {/* DESKTOP NAV (CENTER/LEFT) */}
+          <nav className="hidden md:flex items-center gap-7">
+            {navItems.map((item) => {
+              const isActive = currentSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  data-cursor="hover"
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`group relative text-[10px] tracking-[0.25em] font-syne font-bold uppercase py-1 transition-colors cursor-pointer ${
+                    isActive ? 'text-[#C1121F]' : 'text-[#171515] hover:text-[#C1121F]'
+                  }`}
+                >
+                  {item.label}
+                  {/* Subtle hover/active underline animation */}
+                  <span
+                    className={`absolute bottom-0 left-0 h-[1.5px] bg-[#C1121F] transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* DESKTOP RIGHT: BUILD // LEARN // GROW & PROFILE TRIGGER */}
+          <div className="hidden lg:flex items-center gap-6">
+            <span className="text-[10px] tracking-[0.2em] font-mono text-[#171515]/70 uppercase hidden xl:inline">
+              BUILD // LEARN // GROW
             </span>
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#18120c] border-b border-[#7B5E3C]/40 px-6 py-5 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
-          {navItems.map((item) => {
-            const isActive = currentScreen === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`text-left text-sm tracking-widest uppercase py-2 transition-colors font-label-uppercase ${
-                  isActive ? 'text-[#ffb86e] font-bold pl-2 border-l-2 border-[#ffb86e]' : 'text-[#d7c3b2] hover:text-[#ffb86e]'
-                }`}
-              >
-                {item.label}
-              </button>
-            );
-          })}
-          <div className="pt-3 border-t border-[#7B5E3C]/30 flex flex-col gap-3">
             <button
-              onClick={() => handleNavClick('contact')}
-              className="w-full bg-[#E49A48] hover:bg-[#F5C972] text-[#2c1600] py-2.5 rounded-xl font-label-uppercase font-bold tracking-wider text-center"
+              onClick={onOpenProfile}
+              title="Sai Varshith profile card"
+              data-cursor="hover"
+              className="w-7 h-7 rounded-full bg-[#171515] hover:bg-[#C1121F] flex items-center justify-center border border-[#171515] transition-colors cursor-pointer group"
             >
-              Let's Build
+              <span className="material-symbols-outlined text-[#FFF6E8] group-hover:scale-110 transition-transform text-[16px]">
+                person
+              </span>
             </button>
+          </div>
+
+          {/* MOBILE TRIGGER */}
+          <div className="flex md:hidden items-center gap-3">
+            {onOpenProfile && (
+              <button
+                onClick={onOpenProfile}
+                className="w-7 h-7 rounded-full bg-[#171515] flex items-center justify-center border border-[#171515] text-[#FFF6E8]"
+              >
+                <span className="material-symbols-outlined text-[16px]">person</span>
+              </button>
+            )}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="font-syne text-[10px] tracking-[0.25em] uppercase font-bold text-[#171515] hover:text-[#C1121F] py-1 px-2.5 border border-[#171515]/20 rounded-xs cursor-pointer"
+              aria-label="Open navigation menu"
+            >
+              MENU ↵
+            </button>
+          </div>
+
+        </div>
+      </header>
+
+      {/* FULL-SCREEN EDITORIAL MOBILE OVERLAY */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-[#FFF6E8] text-[#171515] flex flex-col justify-between p-6 sm:p-10 animate-in fade-in duration-300">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between border-b border-[#171515]/15 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-[#171515] flex items-center justify-center">
+                <span className="font-cinzel text-xs font-bold text-[#FFF6E8]">SV</span>
+              </div>
+              <span className="font-syne text-xs tracking-[0.25em] text-[#C1121F] font-bold">
+                NAVIGATION
+              </span>
+            </div>
+
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="font-mono text-xs tracking-widest text-[#171515] hover:text-[#C1121F] uppercase font-bold p-2 cursor-pointer"
+            >
+              CLOSE [✕]
+            </button>
+          </div>
+
+          {/* Mobile Links */}
+          <div className="flex flex-col space-y-6 my-auto py-8">
+            {navItems.map((item, idx) => {
+              const isActive = currentSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className="group text-left flex items-baseline justify-between border-b border-[#171515]/10 pb-4 cursor-pointer"
+                >
+                  <span className="font-mono text-xs text-[#C1121F] font-bold">0{idx + 1}</span>
+                  <span
+                    className={`font-cinzel text-3xl sm:text-4xl font-bold tracking-tight uppercase transition-all ${
+                      isActive ? 'text-[#C1121F] translate-x-2' : 'text-[#171515] group-hover:text-[#C1121F]'
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                  <span className="font-syne text-xs text-[#A9C6EA] font-bold">→</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Footer note */}
+          <div className="border-t border-[#171515]/15 pt-4 flex items-center justify-between font-mono text-[10px] text-[#171515]/70">
+            <span>SAI VARSHITH · 2026</span>
+            <span className="text-[#C1121F]">BUILD // LEARN // GROW</span>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
