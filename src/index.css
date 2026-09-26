@@ -237,28 +237,46 @@
 
 @keyframes lineDrift1 {
   0%, 100% {
-    transform: translateY(0px) scaleY(1);
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
   }
-  50% {
-    transform: translateY(-25px) scaleY(1.05);
+  33% {
+    transform: translate(50px, -30px) rotate(1.8deg) scale(1.03);
+  }
+  66% {
+    transform: translate(-40px, 20px) rotate(-1.4deg) scale(0.97);
   }
 }
 
 @keyframes lineDrift2 {
   0%, 100% {
-    transform: translateY(0px) scaleY(1);
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
   }
-  50% {
-    transform: translateY(30px) scaleY(0.96);
+  40% {
+    transform: translate(-60px, 35px) rotate(-2.2deg) scale(0.96);
+  }
+  75% {
+    transform: translate(45px, -25px) rotate(1.6deg) scale(1.04);
   }
 }
 
 @keyframes lineDrift3 {
   0%, 100% {
-    transform: translateY(0px) scaleY(1);
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
   }
   50% {
-    transform: translateY(-20px) scaleY(1.04);
+    transform: translate(40px, -40px) rotate(2deg) scale(1.05);
+  }
+}
+
+@keyframes lineDrift4 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  45% {
+    transform: translate(-50px, -30px) rotate(-1.8deg) scale(0.96);
+  }
+  80% {
+    transform: translate(35px, 45px) rotate(1.4deg) scale(1.03);
   }
 }
 
@@ -283,15 +301,81 @@
 }
 
 .animate-line-drift-1 {
-  animation: lineDrift1 22s ease-in-out infinite;
+  animation: lineDrift1 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .animate-line-drift-2 {
-  animation: lineDrift2 26s ease-in-out infinite;
+  animation: lineDrift2 32s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .animate-line-drift-3 {
-  animation: lineDrift3 30s ease-in-out infinite;
+  animation: lineDrift3 28s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-line-drift-4 {
+  animation: lineDrift4 36s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* PROJECT CURRENT ANIMATION KEYFRAMES (30-60s cycles) */
+@keyframes currentFlow1 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(80px, -45px) rotate(3deg) scale(1.06);
+  }
+  66% {
+    transform: translate(-60px, 35px) rotate(-2deg) scale(0.95);
+  }
+}
+
+@keyframes currentFlow2 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  40% {
+    transform: translate(-90px, 50px) rotate(-3.5deg) scale(0.94);
+  }
+  75% {
+    transform: translate(70px, -40px) rotate(2.5deg) scale(1.05);
+  }
+}
+
+@keyframes currentFlow3 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(65px, -60px) rotate(3deg) scale(1.07);
+  }
+}
+
+@keyframes currentFlow4 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  45% {
+    transform: translate(-75px, -40px) rotate(-2.8deg) scale(0.93);
+  }
+  80% {
+    transform: translate(55px, 65px) rotate(2.2deg) scale(1.04);
+  }
+}
+
+.animate-current-flow-1 {
+  animation: currentFlow1 34s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-current-flow-2 {
+  animation: currentFlow2 44s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-current-flow-3 {
+  animation: currentFlow3 38s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-current-flow-4 {
+  animation: currentFlow4 48s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 

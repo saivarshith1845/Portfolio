@@ -155,7 +155,7 @@ export const JourneySection: React.FC = () => {
         ref={bgTextRef}
         className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden select-none"
       >
-        <span className="font-cinzel text-[22vw] font-black text-stroke-powder opacity-10 uppercase tracking-tighter whitespace-nowrap">
+        <span className="font-cinzel text-[22vw] font-black text-stroke-powder opacity-05 uppercase tracking-tighter whitespace-nowrap">
           MILESTONES
         </span>
       </div>
@@ -176,7 +176,7 @@ export const JourneySection: React.FC = () => {
         </div>
 
         {/* Timeline Entries Container */}
-        <div className="space-y-20 sm:space-y-32">
+        <div className="space-y-16 sm:space-y-24">
           
           {/* ============================================================ */}
           {/* ENTRY 1: 2025 — ZIGNASA */}
@@ -185,84 +185,88 @@ export const JourneySection: React.FC = () => {
             ref={entry2025Ref}
             className="relative w-full flex flex-col space-y-6"
           >
-            {/* Header Line: Year + Connecting Line + Event Name */}
-            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-6 border-b border-[#FFF6E8]/15 pb-8">
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-10">
-                <span
-                  ref={year2025Ref}
-                  className="font-cinzel text-6xl sm:text-8xl lg:text-9xl font-black text-[#FFF6E8] tracking-tighter select-none leading-none"
-                >
-                  2025
-                </span>
+            <div className="relative z-10 p-6 sm:p-8 rounded-xs bg-[#171515]/75 backdrop-blur-md border border-[#FFF6E8]/10 shadow-2xl transition-all duration-300 hover:border-[#C1121F]/40 space-y-6">
+              {/* Header Line: Year + Connecting Line + Event Name */}
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-6 border-b border-[#FFF6E8]/15 pb-8">
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-10">
+                  <span
+                    ref={year2025Ref}
+                    className="font-cinzel text-6xl sm:text-8xl lg:text-9xl font-black text-[#FFF6E8] tracking-tighter select-none leading-none"
+                  >
+                    2025
+                  </span>
 
-                <div
-                  ref={line2025Ref}
-                  className="hidden md:block w-24 lg:w-40 h-px bg-[#C1121F] origin-left self-center"
-                />
+                  <div
+                    ref={line2025Ref}
+                    className="hidden md:block w-24 lg:w-40 h-px bg-[#C1121F] origin-left self-center"
+                  />
 
-                <div ref={name2025Ref} className="self-baseline">
-                  <h3 className="font-serif-italic font-normal italic text-4xl sm:text-6xl text-[#C1121F] tracking-tight leading-none">
-                    ZIGNASA
-                  </h3>
-                  <p className="font-syne text-xs tracking-[0.25em] text-[#FFF6E8]/70 uppercase mt-2 font-bold">
-                    Hackathon participation
-                  </p>
+                  <div ref={name2025Ref} className="self-baseline">
+                    <h3 className="font-serif-italic font-normal italic text-4xl sm:text-6xl text-[#C1121F] tracking-tight leading-none">
+                      ZIGNASA
+                    </h3>
+                    <p className="font-syne text-xs tracking-[0.25em] text-[#FFF6E8]/70 uppercase mt-2 font-bold">
+                      Hackathon participation
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Description */}
-            <div
-              ref={desc2025Ref}
-              className="max-w-xl border-l-2 border-[#C1121F] pl-5 sm:pl-8 ml-1 sm:ml-4"
-            >
-              <p className="font-sans font-light text-sm sm:text-base text-[#FFF6E8]/90 leading-relaxed tracking-wide">
-                Selected a problem statement and turned the idea into a working website during the hackathon.
-              </p>
+              {/* Description */}
+              <div
+                ref={desc2025Ref}
+                className="max-w-xl border-l-2 border-[#C1121F] pl-5 sm:pl-8 ml-1 sm:ml-4"
+              >
+                <p className="font-sans font-light text-sm sm:text-base text-[#FFF6E8] leading-relaxed tracking-wide">
+                  Selected a problem statement and turned the idea into a working website during the hackathon.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* ============================================================ */}
-          {/* ENTRY 2: 2026 — IGNITIA (Asymmetric Right Offset) */}
+          {/* ENTRY 2: 2026 — IGNITIA (Asymmetric Right Offset & High Readability) */}
           {/* ============================================================ */}
           <div
             ref={entry2026Ref}
             className="relative w-full flex flex-col space-y-6 md:pl-16 lg:pl-32"
           >
-            {/* Header Line: Year + Connecting Line + Event Name */}
-            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-6 border-b border-[#FFF6E8]/15 pb-8">
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-10">
-                <span
-                  ref={year2026Ref}
-                  className="font-cinzel text-6xl sm:text-8xl lg:text-9xl font-black text-[#FFF6E8] tracking-tighter select-none leading-none"
-                >
-                  2026
-                </span>
+            <div className="relative z-10 p-6 sm:p-8 rounded-xs bg-[#171515]/85 backdrop-blur-md border border-[#A9C6EA]/20 shadow-2xl transition-all duration-300 hover:border-[#A9C6EA]/40 space-y-6">
+              {/* Header Line: Year + Connecting Line + Event Name */}
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-6 border-b border-[#FFF6E8]/15 pb-8">
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-10">
+                  <span
+                    ref={year2026Ref}
+                    className="font-cinzel text-6xl sm:text-8xl lg:text-9xl font-black text-[#FFF6E8] tracking-tighter select-none leading-none"
+                  >
+                    2026
+                  </span>
 
-                <div
-                  ref={line2026Ref}
-                  className="hidden md:block w-24 lg:w-40 h-px bg-[#C1121F] origin-left self-center"
-                />
+                  <div
+                    ref={line2026Ref}
+                    className="hidden md:block w-24 lg:w-40 h-px bg-[#C1121F] origin-left self-center"
+                  />
 
-                <div ref={name2026Ref} className="self-baseline">
-                  <h3 className="font-serif-italic font-normal italic text-4xl sm:text-6xl text-[#A9C6EA] tracking-tight leading-none font-semibold">
-                    IGNITIA
-                  </h3>
-                  <p className="font-syne text-xs tracking-[0.25em] text-[#C1121F] uppercase mt-2 font-bold">
-                    Hackathon participation
-                  </p>
+                  <div ref={name2026Ref} className="self-baseline">
+                    <h3 className="font-serif-italic font-normal italic text-4xl sm:text-6xl text-[#A9C6EA] tracking-tight leading-none font-bold drop-shadow-sm">
+                      IGNITIA
+                    </h3>
+                    <p className="font-syne text-xs tracking-[0.25em] text-[#C1121F] uppercase mt-2 font-bold">
+                      Hackathon participation
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Description */}
-            <div
-              ref={desc2026Ref}
-              className="max-w-xl border-l-2 border-[#C1121F] pl-5 sm:pl-8 ml-1 sm:ml-4"
-            >
-              <p className="font-sans font-light text-sm sm:text-base text-[#FFF6E8]/90 leading-relaxed tracking-wide">
-                Joined the challenge to build a website-based solution around a given real-world problem statement.
-              </p>
+              {/* Description */}
+              <div
+                ref={desc2026Ref}
+                className="max-w-xl border-l-2 border-[#C1121F] pl-5 sm:pl-8 ml-1 sm:ml-4"
+              >
+                <p className="font-sans font-normal text-sm sm:text-base text-[#FFF6E8] leading-relaxed tracking-wide">
+                  Joined the challenge to build a website-based solution around a given real-world problem statement.
+                </p>
+              </div>
             </div>
           </div>
 

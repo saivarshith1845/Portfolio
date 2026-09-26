@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { AnimatedLightBackground } from './AnimatedLightBackground';
 
 interface HeroProps {
   isIntroComplete?: boolean;
@@ -13,6 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
   const bgTextRef = useRef<HTMLDivElement>(null);
   const portraitContainerRef = useRef<HTMLDivElement>(null);
   const portraitCardRef = useRef<HTMLDivElement>(null);
+  const portraitAtmosphereRef = useRef<HTMLDivElement>(null);
   const portraitLayerBack1Ref = useRef<HTMLDivElement>(null);
   const portraitLayerBack2Ref = useRef<HTMLDivElement>(null);
   
@@ -29,6 +31,8 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
     portraitRotateY?: gsap.QuickToFunc;
     portraitX?: gsap.QuickToFunc;
     portraitY?: gsap.QuickToFunc;
+    glowX?: gsap.QuickToFunc;
+    glowY?: gsap.QuickToFunc;
     backLayer1X?: gsap.QuickToFunc;
     backLayer1Y?: gsap.QuickToFunc;
     backLayer2X?: gsap.QuickToFunc;
@@ -54,6 +58,9 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
       portraitX: gsap.quickTo(portraitCardRef.current, 'x', { duration, ease }),
       portraitY: gsap.quickTo(portraitCardRef.current, 'y', { duration, ease }),
 
+      glowX: portraitAtmosphereRef.current ? gsap.quickTo(portraitAtmosphereRef.current, 'x', { duration: 0.8, ease }) : undefined,
+      glowY: portraitAtmosphereRef.current ? gsap.quickTo(portraitAtmosphereRef.current, 'y', { duration: 0.8, ease }) : undefined,
+
       backLayer1X: portraitLayerBack1Ref.current ? gsap.quickTo(portraitLayerBack1Ref.current, 'x', { duration: 0.8, ease }) : undefined,
       backLayer1Y: portraitLayerBack1Ref.current ? gsap.quickTo(portraitLayerBack1Ref.current, 'y', { duration: 0.8, ease }) : undefined,
 
@@ -74,6 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
   // Mouse Move Handler for subtle 3D perspective & independent parallax
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (window.matchMedia('(pointer: coarse)').matches) return; // Skip on mobile touch
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // Skip reduced motion
 
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
@@ -87,6 +95,33 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
     mouseTo.current.portraitRotateY?.(normX * 5);  // Max ±5 deg
     mouseTo.current.portraitX?.(normX * 8);       // Max ±8 px
     mouseTo.current.portraitY?.(normY * 6);       // Max ±6 px
+
+    // 1b. Proximity-based soft powder blue atmospheric glow BEHIND portrait
+    if (portraitCardRef.current && portraitAtmosphereRef.current) {
+      const cardRect = portraitCardRef.current.getBoundingClientRect();
+      const cardCenterX = cardRect.left + cardRect.width / 2;
+      const cardCenterY = cardRect.top + cardRect.height / 2;
+
+      const dist = Math.hypot(clientX - cardCenterX, clientY - cardCenterY);
+      const maxDist = 550; // 550px proximity threshold
+      const proximity = Math.max(0, 1 - dist / maxDist); // 0 (far) -> 1 (hovering over portrait)
+
+      // Drift atmosphere glow slightly toward cursor
+      const localX = (clientX - cardCenterX) * 0.35;
+      const localY = (clientY - cardCenterY) * 0.35;
+
+      mouseTo.current.glowX?.(localX);
+      mouseTo.current.glowY?.(localY);
+
+      // Smoothly scale & adjust opacity based on cursor proximity
+      gsap.to(portraitAtmosphereRef.current, {
+        opacity: Math.pow(proximity, 1.2) * 0.95,
+        scale: 0.85 + proximity * 0.35,
+        duration: 0.5,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    }
 
     // 2. Depth layers behind portrait (opposite or delayed parallax)
     mouseTo.current.backLayer1X?.(-normX * 12);
@@ -104,6 +139,19 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
     // 4. Oversized background typography motion
     mouseTo.current.bgTextX?.(normX * 22);
     mouseTo.current.bgTextY?.(normY * 14);
+  };
+
+  // Mouse Leave Handler to smoothly fade glow when cursor exits hero section
+  const handleMouseLeave = () => {
+    if (portraitAtmosphereRef.current) {
+      gsap.to(portraitAtmosphereRef.current, {
+        opacity: 0,
+        scale: 0.85,
+        duration: 0.7,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    }
   };
 
   // Scroll listener for independent typography & portrait parallax & fade scaling
@@ -214,15 +262,14 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
       id="home"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative z-1 w-full min-h-screen bg-transparent text-[#171515] overflow-hidden flex flex-col justify-between select-none perspective-container bg-grid-lines pt-16 sm:pt-20"
     >
+      {/* Reusable Living Canvas Background for Light Sections */}
+      <AnimatedLightBackground seed={1} />
+
       {/* Visual Depth Background Layers */}
       <div className="absolute inset-0 paper-vignette pointer-events-none z-10 opacity-70" />
-      <div className="absolute inset-0 grain-overlay opacity-40 pointer-events-none z-10" />
-
-      {/* Restrained Warm Atmospheric Glow (No Neon) */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#A9C6EA]/15 rounded-full blur-[150px] pointer-events-none z-0 animate-pulse-glow" />
-      <div className="absolute bottom-12 right-12 w-[380px] h-[380px] bg-[#C1121F]/08 rounded-full blur-[160px] pointer-events-none z-0" />
 
       {/* Geometric Vector Crosshair Accents */}
       <div className="absolute top-8 left-8 text-[#C1121F]/40 font-mono text-xs pointer-events-none z-20 hidden sm:block">+ 01</div>
@@ -286,10 +333,17 @@ export const Hero: React.FC<HeroProps> = ({ isIntroComplete = true, onReplayIntr
           >
             <div className="relative w-full max-w-[310px] sm:max-w-md aspect-[4/5] preserve-3d">
               
+              {/* Interactive Soft Atmospheric Halo BEHIND Portrait (Responds smoothly to cursor proximity) */}
+              <div
+                ref={portraitAtmosphereRef}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] sm:w-[620px] h-[480px] sm:h-[620px] rounded-full bg-radial from-[#A9C6EA]/80 via-[#A9C6EA]/35 to-[#C1121F]/15 blur-[100px] pointer-events-none z-0 transition-opacity duration-700 ease-out opacity-0 select-none"
+                style={{ transform: 'translateZ(-50px)' }}
+              />
+
               {/* Depth Layer 2 (Far Back Frame Offset) */}
               <div
                 ref={portraitLayerBack2Ref}
-                className="absolute inset-0 -translate-x-5 translate-y-5 rounded-xs border border-[#171515]/20 bg-[#171515]/05 pointer-events-none"
+                className="absolute inset-0 -translate-x-5 translate-y-5 rounded-xs border border-[#171515]/20 bg-[#171515]/05 pointer-events-none z-1"
                 style={{ transform: 'translateZ(-30px)' }}
               />
 

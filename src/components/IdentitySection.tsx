@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AnimatedLightBackground } from './AnimatedLightBackground';
 
 export const IdentitySection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -82,10 +83,8 @@ export const IdentitySection: React.FC = () => {
       ref={sectionRef}
       className="relative z-1 w-full min-h-[100vh] bg-transparent text-[#171515] py-24 sm:py-32 px-6 sm:px-12 lg:px-20 overflow-hidden flex flex-col justify-center selection:bg-[#C1121F] selection:text-[#FFF6E8] border-t border-[#171515]/15 bg-grid-lines-blue"
     >
-      {/* Background Subtle Grain Overlay & Atmospheric Powder Blue Glow */}
-      <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none z-0" />
-      <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[550px] h-[550px] bg-[#A9C6EA]/15 rounded-full blur-[160px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#C1121F]/06 rounded-full blur-[150px] pointer-events-none z-0" />
+      {/* Reusable Living Canvas Background for Light Sections */}
+      <AnimatedLightBackground seed={2} />
 
       {/* Faint Oversized Background Typography */}
       <div

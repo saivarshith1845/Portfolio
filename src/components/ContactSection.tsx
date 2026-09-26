@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AnimatedLightBackground } from './AnimatedLightBackground';
 
 export const ContactSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -99,10 +100,8 @@ export const ContactSection: React.FC = () => {
       ref={sectionRef}
       className="relative z-1 w-full min-h-screen bg-transparent text-[#171515] py-20 sm:py-28 px-6 sm:px-12 lg:px-20 overflow-hidden flex flex-col justify-between selection:bg-[#C1121F] selection:text-[#FFF6E8] border-t border-[#171515]/15 bg-grid-lines-blue"
     >
-      {/* Background Texture & Atmospheric Crimson + Powder Blue Interaction */}
-      <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none z-0" />
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#A9C6EA]/18 rounded-full blur-[170px] pointer-events-none z-0" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[450px] h-[450px] bg-[#C1121F]/08 rounded-full blur-[160px] pointer-events-none z-0" />
+      {/* Reusable Living Canvas Background for Light Sections */}
+      <AnimatedLightBackground seed={4} />
 
       {/* Faint Oversized Background Typography */}
       <div
