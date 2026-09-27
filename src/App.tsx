@@ -8,6 +8,7 @@ import { CinematicIntro } from './components/CinematicIntro';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { Hero } from './components/Hero';
 import { IdentitySection } from './components/IdentitySection';
+import { SkillsSection } from './components/SkillsSection';
 import { WorkSection } from './components/WorkSection';
 import { JourneySection } from './components/JourneySection';
 import { ContactSection } from './components/ContactSection';
@@ -79,6 +80,9 @@ export default function App() {
 
         {/* Phase 4 Identity / About Section */}
         <IdentitySection />
+
+        {/* Dedicated Technical Skills Control Room */}
+        <SkillsSection />
 
         {/* Phase 5 Projects Chapter */}
         <WorkSection />

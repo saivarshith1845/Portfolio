@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export type NavSection = 'home' | 'about' | 'projects' | 'journey' | 'contact';
+export type NavSection = 'home' | 'about' | 'skills' | 'projects' | 'journey' | 'contact';
 
 interface HeaderProps {
   activeSection?: NavSection;
@@ -15,6 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection = 'home', onNaviga
   const navItems: { id: NavSection; label: string }[] = [
     { id: 'home', label: 'HOME' },
     { id: 'about', label: 'ABOUT' },
+    { id: 'skills', label: 'SKILLS' },
     { id: 'projects', label: 'PROJECTS' },
     { id: 'journey', label: 'HACKATHONS' },
     { id: 'contact', label: 'CONTACT' },
@@ -23,7 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection = 'home', onNaviga
   // Scroll spy to detect active section automatically
   useEffect(() => {
     const handleScroll = () => {
-      const sections: NavSection[] = ['home', 'about', 'projects', 'journey', 'contact'];
+      const sections: NavSection[] = ['home', 'about', 'skills', 'projects', 'journey', 'contact'];
       const scrollPos = window.scrollY + 250;
 
       for (let i = sections.length - 1; i >= 0; i--) {

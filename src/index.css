@@ -378,4 +378,83 @@
   animation: currentFlow4 48s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* LIQUID LIGHT / PAPER REFRACTION KEYFRAMES (30-60s Slow Breathing Cycles) */
+@keyframes liquidMorph1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(120px, 70px) scale(1.15) rotate(15deg);
+  }
+  66% {
+    transform: translate(-80px, 110px) scale(0.9) rotate(-10deg);
+  }
+}
+
+@keyframes liquidMorph2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  40% {
+    transform: translate(-140px, -90px) scale(1.18) rotate(-20deg);
+  }
+  75% {
+    transform: translate(100px, -60px) scale(0.88) rotate(12deg);
+  }
+}
+
+@keyframes liquidMorph3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-110px, 80px) scale(1.12) rotate(25deg);
+  }
+}
+
+@keyframes liquidMorph4 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  45% {
+    transform: translate(90px, -70px) scale(1.22) rotate(-15deg);
+  }
+  80% {
+    transform: translate(-60px, 50px) scale(0.92) rotate(18deg);
+  }
+}
+
+@keyframes liquidMorph5 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  35% {
+    transform: translate(-70px, -110px) scale(1.14) rotate(10deg);
+  }
+  70% {
+    transform: translate(130px, 60px) scale(0.95) rotate(-22deg);
+  }
+}
+
+.animate-liquid-morph-1 {
+  animation: liquidMorph1 42s ease-in-out infinite;
+}
+
+.animate-liquid-morph-2 {
+  animation: liquidMorph2 52s ease-in-out infinite;
+}
+
+.animate-liquid-morph-3 {
+  animation: liquidMorph3 48s ease-in-out infinite;
+}
+
+.animate-liquid-morph-4 {
+  animation: liquidMorph4 58s ease-in-out infinite;
+}
+
+.animate-liquid-morph-5 {
+  animation: liquidMorph5 38s ease-in-out infinite;
+}
+
+
 
