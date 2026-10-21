@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Trophy, Clock, Users } from 'lucide-react';
 import { HackathonBackground } from './HackathonBackground';
+import { FinathonAwardBackground } from './FinathonAwardBackground';
 
 export const JourneySection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -192,128 +193,136 @@ export const JourneySection: React.FC = () => {
             ref={entryFinathonRef}
             className="relative w-full flex flex-col space-y-6"
           >
-            <div className="relative z-10 p-6 sm:p-10 rounded-xs bg-[#171515]/90 backdrop-blur-md border border-[#C1121F]/50 shadow-2xl shadow-[#C1121F]/15 transition-all duration-300 hover:border-[#C1121F] space-y-6 overflow-hidden">
-              {/* Subtle Top Accent using Existing Highlight Color */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#C1121F] via-[#A9C6EA]/60 to-transparent" />
+            {/* The Award Card Container with Prestigious Technology Competition Background */}
+            <div className="group relative z-10 p-6 sm:p-10 lg:p-12 rounded-xs bg-[#171515]/95 backdrop-blur-xl border border-[#C1121F]/60 shadow-[0_15px_60px_-15px_rgba(193,18,31,0.30)] hover:shadow-[0_20px_70px_-10px_rgba(193,18,31,0.45)] transition-all duration-500 hover:border-[#C1121F] space-y-8 overflow-hidden">
+              
+              {/* Dedicated Prestigious Technology Competition Award Background */}
+              <FinathonAwardBackground />
 
-              {/* Badges & Key Highlights Row */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-                {/* Prominent 3rd Place Winner Badge with Trophy Icon */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-[#C1121F]/20 text-[#FFF6E8] border border-[#C1121F] font-syne font-bold text-xs sm:text-sm tracking-widest uppercase shadow-md shadow-[#C1121F]/20">
-                  <Trophy className="w-4 h-4 text-[#C1121F]" />
-                  <span>3rd Place Winner</span>
-                </div>
+              {/* Shimmering Top Foil Edge */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C1121F] via-[#E49A48] via-[#A9C6EA] to-transparent z-10" />
 
-                <div className="flex flex-wrap items-center gap-2">
-                  {/* 150+ Participants Highlight */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xs bg-[#A9C6EA]/15 text-[#A9C6EA] border border-[#A9C6EA]/30 font-syne font-bold text-xs tracking-wider uppercase">
-                    <Users className="w-3.5 h-3.5 text-[#A9C6EA]" />
-                    <span>150+ Participants</span>
+              {/* Content Layer (elevated above background) */}
+              <div className="relative z-10 space-y-8">
+                
+                {/* 1. Header & Badges Row */}
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#FFF6E8]/15 pb-6">
+                  {/* Category / Subtitle */}
+                  <div className="flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#C1121F] animate-ping" />
+                    <span className="font-syne text-xs sm:text-sm tracking-[0.35em] text-[#C1121F] uppercase font-black">
+                      FINATHON | FINANCE HACKATHON
+                    </span>
                   </div>
 
-                  {/* 36-Hour Hackathon Label */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xs bg-[#FFF6E8]/10 text-[#FFF6E8] border border-[#FFF6E8]/20 font-syne font-bold text-xs tracking-wider uppercase">
-                    <Clock className="w-3.5 h-3.5 text-[#C1121F]" />
-                    <span>36-Hour Hackathon</span>
+                  {/* Prestigious Trophy Badge */}
+                  <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xs bg-gradient-to-r from-[#C1121F]/30 via-[#E49A48]/25 to-[#C1121F]/30 text-[#FFF6E8] border border-[#C1121F] font-syne font-black text-xs sm:text-sm tracking-widest uppercase shadow-lg shadow-[#C1121F]/25 backdrop-blur-md">
+                    <Trophy className="w-4 h-4 text-[#E49A48]" />
+                    <span className="text-[#FFF6E8]">🏆 THIRD PLACE WINNER</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Header Line: Year + Connecting Line + Event Name */}
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-6 border-b border-[#FFF6E8]/15 pb-8">
-                <div className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-10">
-                  <span
-                    ref={yearFinathonRef}
-                    className="font-cinzel text-6xl sm:text-8xl lg:text-9xl font-black text-[#FFF6E8] tracking-tighter select-none leading-none"
-                  >
-                    2026
-                  </span>
+                {/* 2. Bold Punchline & Title Spread */}
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#A9C6EA] uppercase tracking-widest font-bold">
+                    <span className="px-2.5 py-1 rounded-xs bg-[#A9C6EA]/15 border border-[#A9C6EA]/30">
+                      36-HOUR CHALLENGE
+                    </span>
+                    <span className="px-2.5 py-1 rounded-xs bg-[#E49A48]/15 text-[#E49A48] border border-[#E49A48]/30">
+                      150+ PARTICIPANTS
+                    </span>
+                    <span className="px-2.5 py-1 rounded-xs bg-[#C1121F]/15 text-[#C1121F] border border-[#C1121F]/30">
+                      FINTECH DIVISION
+                    </span>
+                  </div>
 
-                  <div
-                    ref={lineFinathonRef}
-                    className="hidden md:block w-24 lg:w-40 h-px bg-[#C1121F] origin-left self-center"
-                  />
+                  <h3 className="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-black text-[#FFF6E8] tracking-tight leading-[1.05]">
+                    36 Hours. 150+ Participants. <br className="hidden sm:inline" />
+                    <span className="font-serif-italic font-normal italic text-[#C1121F]">A FinTech Challenge.</span>
+                  </h3>
+                </div>
 
-                  <div ref={nameFinathonRef} className="self-baseline">
-                    <h3 className="font-serif-italic font-normal italic text-4xl sm:text-6xl text-[#C1121F] tracking-tight leading-none drop-shadow-sm">
-                      FINATHON
-                    </h3>
-                    <p className="font-syne text-xs tracking-[0.25em] text-[#A9C6EA] uppercase mt-2 font-bold">
-                      36-Hour Finance Hackathon
+                {/* 3. Description & Domain */}
+                <div
+                  ref={descFinathonRef}
+                  className="max-w-3xl border-l-2 border-[#C1121F] pl-5 sm:pl-8 ml-1 sm:ml-2 space-y-4"
+                >
+                  <p className="font-sans font-light text-base sm:text-lg text-[#FFF6E8] leading-relaxed tracking-wide">
+                    I secured third place in <strong className="font-semibold text-[#FFF6E8]">Finathon</strong>, a 36-hour finance-focused hackathon with over 150 participants.
+                  </p>
+                  <p className="font-sans font-normal text-sm sm:text-base text-[#FFF6E8]/85 leading-relaxed tracking-wide">
+                    Our challenge focused on building an AI-powered bank transaction intelligence solution for Indian SMEs, exploring automated transaction categorization, financial record matching, and fraud detection.
+                  </p>
+
+                  {/* Technology Domain */}
+                  <div className="pt-2 flex flex-wrap items-center gap-2 font-syne text-xs uppercase tracking-wider font-bold">
+                    <span className="text-[#A9C6EA]">Technology domain:</span>
+                    <span className="px-3 py-1 rounded-xs bg-[#FFF6E8]/08 border border-[#FFF6E8]/20 text-[#FFF6E8]">
+                      FinTech
+                    </span>
+                    <span className="text-[#C1121F] font-bold">·</span>
+                    <span className="px-3 py-1 rounded-xs bg-[#FFF6E8]/08 border border-[#FFF6E8]/20 text-[#FFF6E8]">
+                      Artificial Intelligence
+                    </span>
+                    <span className="text-[#C1121F] font-bold">·</span>
+                    <span className="px-3 py-1 rounded-xs bg-[#FFF6E8]/08 border border-[#FFF6E8]/20 text-[#FFF6E8]">
+                      Financial Automation
+                    </span>
+                  </div>
+                </div>
+
+                {/* 4. Project Details & Problem Statement Capabilities */}
+                <div className="mt-8 pt-8 border-t border-[#FFF6E8]/15 space-y-5 bg-[#171515]/60 -mx-6 sm:-mx-10 lg:-mx-12 px-6 sm:px-10 lg:px-12 -mb-6 sm:-mb-10 lg:-mb-12 pb-8 sm:pb-10 lg:pb-12 rounded-b-xs">
+                  <div>
+                    <span className="font-mono text-[10px] tracking-[0.25em] text-[#A9C6EA] uppercase font-bold block mb-1">
+                      CHALLENGE PROTOTYPE // SOLUTION ARCHITECTURE
+                    </span>
+                    <h4 className="font-cinzel text-lg sm:text-xl font-bold text-[#FFF6E8]">
+                      AI-Powered Bank Transaction Intelligence for Indian SMEs
+                    </h4>
+                    <p className="font-sans font-light text-xs sm:text-sm text-[#FFF6E8]/80 leading-relaxed mt-1.5 max-w-3xl">
+                      An AI-focused fintech prototype exploring automated transaction categorization, intelligent financial-record matching, fraud alerts, and voice-based financial queries.
                     </p>
                   </div>
-                </div>
-              </div>
 
-              {/* Description */}
-              <div
-                ref={descFinathonRef}
-                className="max-w-3xl border-l-2 border-[#C1121F] pl-5 sm:pl-8 ml-1 sm:ml-4 space-y-4"
-              >
-                <p className="font-sans font-light text-sm sm:text-base text-[#FFF6E8] leading-relaxed tracking-wide">
-                  Secured 3rd place in Finathon, a 36-hour finance-focused hackathon with over 150 participants. Worked on an AI-powered bank transaction intelligence solution designed to help Indian SMEs automate transaction categorization, streamline financial workflows, and identify potentially fraudulent payments.
-                </p>
+                  {/* Technical Focus */}
+                  <div>
+                    <span className="font-syne text-[11px] tracking-wider text-[#C1121F] uppercase font-bold block mb-2">
+                      Technical Focus:
+                    </span>
+                    <div className="flex flex-wrap gap-2 text-xs font-mono text-[#FFF6E8]/90">
+                      {['AI-assisted classification', 'Financial automation', 'Transaction matching', 'Fraud detection'].map((focus) => (
+                        <span key={focus} className="px-2.5 py-1 rounded-xs bg-[#FFF6E8]/5 border border-[#FFF6E8]/15">
+                          {focus}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-                {/* Project Domains */}
-                <div className="flex flex-wrap items-center gap-2 pt-1 font-syne text-[11px] font-bold tracking-wider uppercase">
-                  <span className="text-[#A9C6EA]">Project Domain:</span>
-                  <span className="px-2.5 py-0.5 rounded-xs bg-[#FFF6E8]/5 border border-[#FFF6E8]/15 text-[#FFF6E8]/90">FinTech</span>
-                  <span className="px-2.5 py-0.5 rounded-xs bg-[#FFF6E8]/5 border border-[#FFF6E8]/15 text-[#FFF6E8]/90">AI</span>
-                  <span className="px-2.5 py-0.5 rounded-xs bg-[#FFF6E8]/5 border border-[#FFF6E8]/15 text-[#FFF6E8]/90">Financial Automation</span>
-                </div>
-              </div>
-
-              {/* Concise Finathon Project Summary & Technical Focus */}
-              <div className="mt-6 pt-6 border-t border-[#FFF6E8]/15 space-y-4 bg-[#FFF6E8]/[0.02] -mx-6 sm:-mx-10 px-6 sm:px-10 -mb-6 sm:-mb-10 pb-6 sm:pb-10">
-                <div>
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-[#A9C6EA] uppercase font-bold block mb-1">
-                    PROJECT SUMMARY // FINTECH PROTOTYPE
-                  </span>
-                  <h4 className="font-cinzel text-lg sm:text-xl font-bold text-[#FFF6E8]">
-                    AI-Powered Bank Transaction Intelligence for Indian SMEs
-                  </h4>
-                  <p className="font-sans font-light text-xs sm:text-sm text-[#FFF6E8]/85 leading-relaxed mt-2 max-w-3xl">
-                    An AI-focused fintech prototype exploring automated transaction categorization, intelligent financial-record matching, fraud alerts, and voice-based financial queries.
-                  </p>
-                </div>
-
-                {/* Technical Focus */}
-                <div>
-                  <span className="font-syne text-[11px] tracking-wider text-[#C1121F] uppercase font-bold block mb-2">
-                    Technical Focus:
-                  </span>
-                  <div className="flex flex-wrap gap-2 text-xs font-mono text-[#FFF6E8]/90">
-                    {['AI-assisted classification', 'Financial automation', 'Transaction matching', 'Fraud detection'].map((focus) => (
-                      <span key={focus} className="px-2.5 py-1 rounded-xs bg-[#FFF6E8]/5 border border-[#FFF6E8]/15">
-                        {focus}
-                      </span>
-                    ))}
+                  {/* Addressed Concepts */}
+                  <div>
+                    <span className="font-syne text-[11px] tracking-wider text-[#A9C6EA] uppercase font-bold block mb-2">
+                      Addressed Problem Areas & Technical Concepts:
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs font-sans text-[#FFF6E8]/85">
+                      {[
+                        'Bank transaction categorization',
+                        'Intelligent matching against known financial records',
+                        'Transaction review workflows',
+                        'Fraud alerts for recently changed beneficiary accounts',
+                        'Voice-based financial queries',
+                        'Indian payment methods (UPI, NEFT, RTGS, IMPS)',
+                      ].map((concept, cIdx) => (
+                        <div key={cIdx} className="flex items-center gap-2.5 p-2.5 rounded-xs bg-[#171515]/75 border border-[#FFF6E8]/10 hover:border-[#A9C6EA]/30 transition-colors">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#C1121F] shrink-0" />
+                          <span className="leading-snug">{concept}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Technical Concepts from Problem Statement */}
-                <div>
-                  <span className="font-syne text-[11px] tracking-wider text-[#A9C6EA] uppercase font-bold block mb-2">
-                    Problem Statement Concepts & Addressed Capabilities:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs font-sans text-[#FFF6E8]/80">
-                    {[
-                      'Bank transaction categorization',
-                      'Intelligent matching against known financial records',
-                      'Transaction review workflows',
-                      'Fraud alerts for recently changed beneficiary accounts',
-                      'Voice-based financial queries',
-                      'Indian payment methods (UPI, NEFT, RTGS, IMPS)',
-                    ].map((concept, cIdx) => (
-                      <div key={cIdx} className="flex items-center gap-2 p-2 rounded-xs bg-[#171515]/60 border border-[#FFF6E8]/10">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#C1121F] shrink-0" />
-                        <span className="leading-snug">{concept}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
-
             </div>
           </div>
 
