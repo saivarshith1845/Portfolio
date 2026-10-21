@@ -6,7 +6,7 @@ import { SkillsBackground } from './SkillsBackground';
 interface SkillItem {
   id: string;
   name: string;
-  category: 'PROGRAMMING' | 'DATA';
+  category: 'PROGRAMMING' | 'DATA' | 'CS FUNDAMENTALS';
   code: string;
   signalBars: number; // 1 to 5 signal level
 }
@@ -17,13 +17,14 @@ export const SkillsSection: React.FC = () => {
 
   const [activeSkill, setActiveSkill] = useState<string>('C');
 
-  // ONLY 5 actual skills
+  // Core technical capabilities
   const skillsList: SkillItem[] = [
     { id: 'c', name: 'C', category: 'PROGRAMMING', code: 'DEV_LANG_01 // C', signalBars: 5 },
     { id: 'python', name: 'Python', category: 'PROGRAMMING', code: 'DEV_LANG_02 // PY', signalBars: 5 },
     { id: 'java', name: 'Java', category: 'PROGRAMMING', code: 'DEV_LANG_03 // JV', signalBars: 4 },
     { id: 'sql', name: 'SQL', category: 'DATA', code: 'DEV_DATA_01 // SQL', signalBars: 5 },
     { id: 'javascript', name: 'JavaScript', category: 'PROGRAMMING', code: 'DEV_LANG_04 // JS', signalBars: 4 },
+    { id: 'dsa', name: 'Data Structures', category: 'CS FUNDAMENTALS', code: 'DEV_CORE_01 // DSA', signalBars: 5 },
   ];
 
   // Animated Waveform Oscilloscope Canvas
@@ -268,13 +269,33 @@ export const SkillsSection: React.FC = () => {
                 </span>
                 <div className="flex flex-wrap gap-2.5">
                   <span
-                    className={`px-3 py-1.5 text-xs font-syne font-bold uppercase rounded-xs border transition-colors ${
+                    onClick={() => setActiveSkill('SQL')}
+                    className={`px-3 py-1.5 text-xs font-syne font-bold uppercase rounded-xs border transition-colors cursor-pointer ${
                       activeSkill === 'SQL'
                         ? 'border-[#C1121F] bg-[#C1121F] text-[#FFF6E8]'
-                        : 'border-[#FFF6E8]/20 bg-[#FFF6E8]/5 text-[#FFF6E8]/90'
+                        : 'border-[#FFF6E8]/20 bg-[#FFF6E8]/5 text-[#FFF6E8]/90 hover:border-[#A9C6EA]/50'
                     }`}
                   >
                     SQL
+                  </span>
+                </div>
+              </div>
+
+              {/* COMPUTER SCIENCE FUNDAMENTALS CATEGORY */}
+              <div className="space-y-2 pt-2 border-t border-[#FFF6E8]/10">
+                <span className="block font-mono text-[10px] tracking-[0.25em] text-[#A9C6EA] uppercase font-bold">
+                  COMPUTER SCIENCE FUNDAMENTALS
+                </span>
+                <div className="flex flex-wrap gap-2.5">
+                  <span
+                    onClick={() => setActiveSkill('Data Structures')}
+                    className={`px-3 py-1.5 text-xs font-syne font-bold uppercase rounded-xs border transition-colors cursor-pointer ${
+                      activeSkill === 'Data Structures'
+                        ? 'border-[#C1121F] bg-[#C1121F] text-[#FFF6E8]'
+                        : 'border-[#FFF6E8]/20 bg-[#FFF6E8]/5 text-[#FFF6E8]/90 hover:border-[#A9C6EA]/50'
+                    }`}
+                  >
+                    Data Structures
                   </span>
                 </div>
               </div>

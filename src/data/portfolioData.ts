@@ -8,6 +8,21 @@ export const AI_PROJECT_IMAGE_URL =
 
 export const PROJECTS: Project[] = [
   {
+    id: 'finathon',
+    number: 'FEATURED // HACKATHON WINNER',
+    badge: '3RD PLACE WINNER',
+    category: 'ai',
+    title: 'AI-Powered Bank Transaction Intelligence for Indian SMEs',
+    headline: 'FINATHON // 3RD PLACE WINNER',
+    description:
+      'Secured 3rd place in Finathon, a 36-hour finance-focused hackathon with over 150 participants. An AI-focused fintech prototype exploring automated transaction categorization, intelligent financial-record matching, fraud alerts, and voice-based financial queries.',
+    fullDescription:
+      'Secured 3rd place in Finathon, a 36-hour finance-focused hackathon with over 150 participants. Worked on an AI-powered bank transaction intelligence solution designed to help Indian SMEs automate transaction categorization, streamline financial workflows, and identify potentially fraudulent payments. Technical focus: AI-assisted classification, financial automation, transaction matching, and fraud detection. Explores problem statement capabilities including bank transaction categorization, intelligent record matching, review workflows, fraud alerts for recently changed beneficiary accounts, voice queries, and Indian payment rails (UPI, NEFT, RTGS, IMPS).',
+    tags: ['FinTech', 'AI', 'Financial Automation', 'UPI / NEFT / RTGS', 'Fraud Detection'],
+    metrics: ['3rd Place Winner', '150+ Participants', '36-Hour Hackathon'],
+    categoryLabel: 'FinTech Intelligence',
+  },
+  {
     id: 'ai-platform',
     number: '01 // FLAGSHIP PRODUCT',
     badge: 'CURRENTLY BUILDING',
@@ -79,6 +94,46 @@ export const PROJECTS: Project[] = [
 
 export const TIMELINE_ITEMS: TimelineItem[] = [
   {
+    id: 'step-finathon',
+    step: 'Featured Achievement',
+    label: 'Hackathon Winner',
+    title: 'FINATHON — 3rd Place Winner',
+    description:
+      'Secured 3rd place in Finathon, a 36-hour finance-focused hackathon with over 150 participants. Developed an AI-powered bank transaction intelligence solution for Indian SMEs.',
+    status: '3rd Place Winner',
+    statusType: 'milestone',
+  },
+  {
+    id: 'step-sih',
+    step: 'Innovation Challenge',
+    label: 'College Selection',
+    title: 'SMART INDIA HACKATHON',
+    description:
+      'Participated in Smart India Hackathon and was selected in the college-level internal round, gaining experience in collaborative problem-solving and developing innovative solutions to real-world challenges.',
+    status: 'Selected (College Round)',
+    statusType: 'milestone',
+  },
+  {
+    id: 'step-3',
+    step: 'Innovation Showcase',
+    label: 'Innovation Showcase',
+    title: 'ZIGNASA 2025',
+    description:
+      'Selected a problem statement and turned the idea into a working website during the hackathon.',
+    status: 'Milestone',
+    statusType: 'milestone',
+  },
+  {
+    id: 'step-4',
+    step: 'Competitive Edge',
+    label: 'Competitive Edge',
+    title: 'IGNITIA 2026',
+    description:
+      'Joined the challenge to build a website-based solution around a given real-world problem statement.',
+    status: 'Upcoming / Active',
+    statusType: 'upcoming',
+  },
+  {
     id: 'step-1',
     step: '01 — Foundation',
     label: 'Foundation',
@@ -99,28 +154,8 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
     statusType: 'ongoing',
   },
   {
-    id: 'step-3',
-    step: '03 — Innovation Showcase',
-    label: 'Innovation Showcase',
-    title: 'ZIGNASA 2025',
-    description:
-      'Presented advanced predictive modeling frameworks and interactive visualization dashboards to industry panels, securing top recognition.',
-    status: 'Milestone',
-    statusType: 'milestone',
-  },
-  {
-    id: 'step-4',
-    step: '04 — Competitive Edge',
-    label: 'Competitive Edge',
-    title: 'IGNITIA 2026',
-    description:
-      'Spearheaded cross-functional hackathon teams to deploy end-to-end autonomous agents under high-pressure constraints.',
-    status: 'Upcoming / Active',
-    statusType: 'upcoming',
-  },
-  {
     id: 'step-5',
-    step: '05 — Present Horizon',
+    step: 'Present Horizon',
     label: 'Present Horizon',
     title: 'AI Student Platform',
     description:

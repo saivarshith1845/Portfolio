@@ -44,7 +44,7 @@ export const SkillsScreen: React.FC<SkillsScreenProps> = ({ onNavigate }) => {
             </p>
           </div>
           <div className="flex flex-wrap gap-2 pt-4 border-t border-[#7B5E3C]/20">
-            {['C', 'Python', 'Java'].map((tag) => (
+            {['C', 'Python', 'Java', 'Data Structures'].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 bg-[#251e18] text-[#ffb86e] rounded text-xs font-label-uppercase tracking-wider border border-[#7B5E3C]/30"
