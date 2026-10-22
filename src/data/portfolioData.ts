@@ -106,11 +106,11 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
   {
     id: 'step-sih',
     step: 'Innovation Challenge',
-    label: 'College Selection',
-    title: 'SMART INDIA HACKATHON',
+    label: 'College-Level Round',
+    title: 'SMART INDIA HACKATHON (SIH) 2026',
     description:
-      'Participated in Smart India Hackathon and was selected in the college-level internal round, gaining experience in collaborative problem-solving and developing innovative solutions to real-world challenges.',
-    status: 'Selected (College Round)',
+      'Participated in Smart India Hackathon 2026 and was selected in the college-level internal round.',
+    status: 'Selected in College-Level Internal Round',
     statusType: 'milestone',
   },
   {

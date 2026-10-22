@@ -194,105 +194,105 @@ export const JourneySection: React.FC = () => {
             className="relative w-full flex flex-col space-y-6"
           >
             {/* The Award Card Container with Prestigious Technology Competition Background */}
-            <div className="group relative z-10 p-6 sm:p-10 lg:p-12 rounded-xs bg-[#171515]/95 backdrop-blur-xl border border-[#C1121F]/60 shadow-[0_15px_60px_-15px_rgba(193,18,31,0.30)] hover:shadow-[0_20px_70px_-10px_rgba(193,18,31,0.45)] transition-all duration-500 hover:border-[#C1121F] space-y-8 overflow-hidden">
+            <div className="group relative z-10 p-6 sm:p-10 lg:p-12 rounded-xs bg-[#0A0705]/95 backdrop-blur-xl border border-[#C88A3A]/50 shadow-[0_20px_80px_-15px_rgba(200,138,58,0.28),inset_0_1px_1px_rgba(255,230,165,0.35)] hover:shadow-[0_25px_95px_-10px_rgba(229,169,60,0.42)] transition-all duration-500 hover:border-[#FCE1A2] space-y-8 overflow-hidden">
               
               {/* Dedicated Prestigious Technology Competition Award Background */}
               <FinathonAwardBackground />
 
-              {/* Shimmering Top Foil Edge */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C1121F] via-[#E49A48] via-[#A9C6EA] to-transparent z-10" />
+              {/* Shimmering Top Champagne Gold Foil Edge */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E5A93C] via-[#FFF3D1] via-[#C88A3A] to-transparent z-10" />
 
               {/* Content Layer (elevated above background) */}
               <div className="relative z-10 space-y-8">
                 
                 {/* 1. Header & Badges Row */}
-                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#FFF6E8]/15 pb-6">
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E5A93C]/20 pb-6">
                   {/* Category / Subtitle */}
                   <div className="flex items-center gap-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#C1121F] animate-ping" />
-                    <span className="font-syne text-xs sm:text-sm tracking-[0.35em] text-[#C1121F] uppercase font-black">
-                      FINATHON | FINANCE HACKATHON
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#E5A93C] animate-ping" />
+                    <span className="font-syne text-xs sm:text-sm tracking-[0.35em] text-[#E5B258] uppercase font-black">
+                      FINATHON // FINANCIAL TECHNOLOGY AWARDS
                     </span>
                   </div>
 
                   {/* Prestigious Trophy Badge */}
-                  <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xs bg-gradient-to-r from-[#C1121F]/30 via-[#E49A48]/25 to-[#C1121F]/30 text-[#FFF6E8] border border-[#C1121F] font-syne font-black text-xs sm:text-sm tracking-widest uppercase shadow-lg shadow-[#C1121F]/25 backdrop-blur-md">
-                    <Trophy className="w-4 h-4 text-[#E49A48]" />
-                    <span className="text-[#FFF6E8]">🏆 THIRD PLACE WINNER</span>
+                  <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xs bg-gradient-to-r from-[#382412] via-[#523517] to-[#26160A] text-[#FFF4D4] border border-[#E5A93C] font-syne font-black text-xs sm:text-sm tracking-widest uppercase shadow-[0_0_22px_rgba(229,169,60,0.32)] backdrop-blur-md">
+                    <Trophy className="w-4 h-4 text-[#FFDE85]" />
+                    <span className="text-[#FFF5DC]">🏆 THIRD PLACE WINNER // PODIUM HONORS</span>
                   </div>
                 </div>
 
                 {/* 2. Bold Punchline & Title Spread */}
                 <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#A9C6EA] uppercase tracking-widest font-bold">
-                    <span className="px-2.5 py-1 rounded-xs bg-[#A9C6EA]/15 border border-[#A9C6EA]/30">
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono uppercase tracking-widest font-bold">
+                    <span className="px-2.5 py-1 rounded-xs bg-[#24170D]/90 border border-[#E5A93C]/40 text-[#FFE7AD]">
                       36-HOUR CHALLENGE
                     </span>
-                    <span className="px-2.5 py-1 rounded-xs bg-[#E49A48]/15 text-[#E49A48] border border-[#E49A48]/30">
+                    <span className="px-2.5 py-1 rounded-xs bg-[#3D2511]/90 text-[#FFD884] border border-[#E5A93C]/60">
                       150+ PARTICIPANTS
                     </span>
-                    <span className="px-2.5 py-1 rounded-xs bg-[#C1121F]/15 text-[#C1121F] border border-[#C1121F]/30">
+                    <span className="px-2.5 py-1 rounded-xs bg-[#24170D]/90 text-[#E5B258] border border-[#E5A93C]/40">
                       FINTECH DIVISION
                     </span>
                   </div>
 
                   <h3 className="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-black text-[#FFF6E8] tracking-tight leading-[1.05]">
                     36 Hours. 150+ Participants. <br className="hidden sm:inline" />
-                    <span className="font-serif-italic font-normal italic text-[#C1121F]">A FinTech Challenge.</span>
+                    <span className="font-serif-italic font-normal italic text-[#E5B258] drop-shadow-[0_0_18px_rgba(229,178,88,0.4)]">A FinTech Award Showcase.</span>
                   </h3>
                 </div>
 
                 {/* 3. Description & Domain */}
                 <div
                   ref={descFinathonRef}
-                  className="max-w-3xl border-l-2 border-[#C1121F] pl-5 sm:pl-8 ml-1 sm:ml-2 space-y-4"
+                  className="max-w-3xl border-l-2 border-[#E5A93C] pl-5 sm:pl-8 ml-1 sm:ml-2 space-y-4"
                 >
                   <p className="font-sans font-light text-base sm:text-lg text-[#FFF6E8] leading-relaxed tracking-wide">
                     I secured third place in <strong className="font-semibold text-[#FFF6E8]">Finathon</strong>, a 36-hour finance-focused hackathon with over 150 participants.
                   </p>
-                  <p className="font-sans font-normal text-sm sm:text-base text-[#FFF6E8]/85 leading-relaxed tracking-wide">
+                  <p className="font-sans font-normal text-sm sm:text-base text-[#FFF6E8]/90 leading-relaxed tracking-wide">
                     Our challenge focused on building an AI-powered bank transaction intelligence solution for Indian SMEs, exploring automated transaction categorization, financial record matching, and fraud detection.
                   </p>
 
                   {/* Technology Domain */}
                   <div className="pt-2 flex flex-wrap items-center gap-2 font-syne text-xs uppercase tracking-wider font-bold">
-                    <span className="text-[#A9C6EA]">Technology domain:</span>
-                    <span className="px-3 py-1 rounded-xs bg-[#FFF6E8]/08 border border-[#FFF6E8]/20 text-[#FFF6E8]">
+                    <span className="text-[#E5B258]">Technology domain:</span>
+                    <span className="px-3 py-1 rounded-xs bg-[#24180E]/80 border border-[#E5A93C]/35 text-[#FFF5DF]">
                       FinTech
                     </span>
-                    <span className="text-[#C1121F] font-bold">·</span>
-                    <span className="px-3 py-1 rounded-xs bg-[#FFF6E8]/08 border border-[#FFF6E8]/20 text-[#FFF6E8]">
+                    <span className="text-[#E5A93C] font-bold">·</span>
+                    <span className="px-3 py-1 rounded-xs bg-[#24180E]/80 border border-[#E5A93C]/35 text-[#FFF5DF]">
                       Artificial Intelligence
                     </span>
-                    <span className="text-[#C1121F] font-bold">·</span>
-                    <span className="px-3 py-1 rounded-xs bg-[#FFF6E8]/08 border border-[#FFF6E8]/20 text-[#FFF6E8]">
+                    <span className="text-[#E5A93C] font-bold">·</span>
+                    <span className="px-3 py-1 rounded-xs bg-[#24180E]/80 border border-[#E5A93C]/35 text-[#FFF5DF]">
                       Financial Automation
                     </span>
                   </div>
                 </div>
 
                 {/* 4. Project Details & Problem Statement Capabilities */}
-                <div className="mt-8 pt-8 border-t border-[#FFF6E8]/15 space-y-5 bg-[#171515]/60 -mx-6 sm:-mx-10 lg:-mx-12 px-6 sm:px-10 lg:px-12 -mb-6 sm:-mb-10 lg:-mb-12 pb-8 sm:pb-10 lg:pb-12 rounded-b-xs">
+                <div className="mt-8 pt-8 border-t border-[#E5A93C]/20 space-y-5 bg-[#0C0805]/85 -mx-6 sm:-mx-10 lg:-mx-12 px-6 sm:px-10 lg:px-12 -mb-6 sm:-mb-10 lg:-mb-12 pb-8 sm:pb-10 lg:pb-12 rounded-b-xs">
                   <div>
-                    <span className="font-mono text-[10px] tracking-[0.25em] text-[#A9C6EA] uppercase font-bold block mb-1">
+                    <span className="font-mono text-[10px] tracking-[0.25em] text-[#E5B258] uppercase font-bold block mb-1">
                       CHALLENGE PROTOTYPE // SOLUTION ARCHITECTURE
                     </span>
                     <h4 className="font-cinzel text-lg sm:text-xl font-bold text-[#FFF6E8]">
                       AI-Powered Bank Transaction Intelligence for Indian SMEs
                     </h4>
-                    <p className="font-sans font-light text-xs sm:text-sm text-[#FFF6E8]/80 leading-relaxed mt-1.5 max-w-3xl">
+                    <p className="font-sans font-light text-xs sm:text-sm text-[#FFF6E8]/85 leading-relaxed mt-1.5 max-w-3xl">
                       An AI-focused fintech prototype exploring automated transaction categorization, intelligent financial-record matching, fraud alerts, and voice-based financial queries.
                     </p>
                   </div>
 
                   {/* Technical Focus */}
                   <div>
-                    <span className="font-syne text-[11px] tracking-wider text-[#C1121F] uppercase font-bold block mb-2">
+                    <span className="font-syne text-[11px] tracking-wider text-[#E5A93C] uppercase font-bold block mb-2">
                       Technical Focus:
                     </span>
                     <div className="flex flex-wrap gap-2 text-xs font-mono text-[#FFF6E8]/90">
                       {['AI-assisted classification', 'Financial automation', 'Transaction matching', 'Fraud detection'].map((focus) => (
-                        <span key={focus} className="px-2.5 py-1 rounded-xs bg-[#FFF6E8]/5 border border-[#FFF6E8]/15">
+                        <span key={focus} className="px-2.5 py-1 rounded-xs bg-[#24170D]/90 border border-[#E5A93C]/30 text-[#FFE7AD]">
                           {focus}
                         </span>
                       ))}
@@ -301,10 +301,10 @@ export const JourneySection: React.FC = () => {
 
                   {/* Addressed Concepts */}
                   <div>
-                    <span className="font-syne text-[11px] tracking-wider text-[#A9C6EA] uppercase font-bold block mb-2">
+                    <span className="font-syne text-[11px] tracking-wider text-[#E5B258] uppercase font-bold block mb-2">
                       Addressed Problem Areas & Technical Concepts:
                     </span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs font-sans text-[#FFF6E8]/85">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs font-sans text-[#FFF6E8]/90">
                       {[
                         'Bank transaction categorization',
                         'Intelligent matching against known financial records',
@@ -313,8 +313,8 @@ export const JourneySection: React.FC = () => {
                         'Voice-based financial queries',
                         'Indian payment methods (UPI, NEFT, RTGS, IMPS)',
                       ].map((concept, cIdx) => (
-                        <div key={cIdx} className="flex items-center gap-2.5 p-2.5 rounded-xs bg-[#171515]/75 border border-[#FFF6E8]/10 hover:border-[#A9C6EA]/30 transition-colors">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#C1121F] shrink-0" />
+                        <div key={cIdx} className="flex items-center gap-2.5 p-2.5 rounded-xs bg-[#17100B]/90 border border-[#E5A93C]/20 hover:border-[#E5B258]/50 transition-colors">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E5A93C] shrink-0 shadow-[0_0_6px_#E5A93C]" />
                           <span className="leading-snug">{concept}</span>
                         </div>
                       ))}
@@ -327,7 +327,7 @@ export const JourneySection: React.FC = () => {
           </div>
 
           {/* ============================================================ */}
-          {/* ENTRY 2: SMART INDIA HACKATHON (SIH)                         */}
+          {/* ENTRY 2: SMART INDIA HACKATHON (SIH) 2026                    */}
           {/* ============================================================ */}
           <div
             ref={entrySihRef}
@@ -349,7 +349,7 @@ export const JourneySection: React.FC = () => {
                     ref={yearSihRef}
                     className="font-cinzel text-6xl sm:text-8xl lg:text-9xl font-black text-[#FFF6E8] tracking-tighter select-none leading-none"
                   >
-                    2025
+                    2026
                   </span>
 
                   <div
@@ -359,10 +359,10 @@ export const JourneySection: React.FC = () => {
 
                   <div ref={nameSihRef} className="self-baseline">
                     <h3 className="font-serif-italic font-normal italic text-3xl sm:text-5xl text-[#A9C6EA] tracking-tight leading-none font-bold drop-shadow-sm">
-                      SMART INDIA HACKATHON
+                      SMART INDIA HACKATHON (SIH) 2026
                     </h3>
                     <p className="font-syne text-xs tracking-[0.25em] text-[#C1121F] uppercase mt-2 font-bold">
-                      Internal Round Selection
+                      Selected in College-Level Internal Round
                     </p>
                   </div>
                 </div>
@@ -374,7 +374,7 @@ export const JourneySection: React.FC = () => {
                 className="max-w-xl border-l-2 border-[#A9C6EA] pl-5 sm:pl-8 ml-1 sm:ml-4"
               >
                 <p className="font-sans font-light text-sm sm:text-base text-[#FFF6E8] leading-relaxed tracking-wide">
-                  Participated in Smart India Hackathon and was selected in the college-level internal round, gaining experience in collaborative problem-solving and developing innovative solutions to real-world challenges.
+                  Participated in Smart India Hackathon 2026 and was selected in the college-level internal round.
                 </p>
               </div>
             </div>
